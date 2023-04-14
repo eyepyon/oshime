@@ -19,6 +19,11 @@ print "<h1>".$_SERVER['SERVER_NAME']."</h1>";
     $wallet = trim(urlencode($_POST["wallet"]));
     $memo = trim($_POST["memo"]);
     $BG = trim($_POST["BG"]);
+
+    $p = explode(".",$_SERVER['SERVER_NAME']);
+    $api = "https://www.aptosnames.com/api/mainnet/v1/address/";
+    $response = @file_get_contents($api.trim($p[0]));//
+
     if ($wallet!=""){
         ?>
         URL1:<input type="text" name="url1" value="<?php print $url1; ?>"><br />
